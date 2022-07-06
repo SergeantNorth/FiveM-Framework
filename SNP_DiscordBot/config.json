@@ -1,0 +1,21 @@
+{
+    "token": "",
+    "prefix": "?",
+
+
+    "embed": {
+        "color": "#0000",
+        "footer": "footer"
+    },
+
+    "database": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "name": "fivem"
+    },
+
+    "sql_backups": false
+
+
+}

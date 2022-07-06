@@ -1,0 +1,6 @@
+- make sure to install git
+- make sure you have nodejs installed
+- drag and drop into the resource folder
+- click setup.bat
+- edit the config
+- start the bot in server.cfg

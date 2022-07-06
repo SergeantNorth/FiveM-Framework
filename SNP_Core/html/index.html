@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Style Sheets-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/script.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <!-- Main Framework Div -->
+    <div class="mainframework">
+        <!-- Center Panel -->
+        <div class="centerpanel" id="main_panel">
+            <!-- main logo -->
+            <div class="logo p-4">
+                <img id="img" width="55%" height="55%" src="./img/logo.png">
+                <h1 class="welcomemsg" style="font-size: 23.0px; font-weight: bold;" id="welcomemsg"></h1>
+                <h2 style="font-size: 20px; font-weight: bold; color: rgb(221, 221, 221);" class="aopname" id="aopname"></h2>
+                <button type="button" class="btn font-weight-bold mb-2 mt-3" style="position:relative; left:10px; " id="main_charcter" data-toggle="modal" data-target="#characterCreate"></button>
+                <div>
+                    <button type="button" class="btn btn-dark font-weight-bold mb-2 mt-3" id="refreshChars"></button>
+                    <button type="button" class="btn btn-primary font-weight-bold mb-2 mt-3" style="color: #fff" id="settingsModa" data-toggle="modal" data-target="#settingsModal">Settings</button>
+                    <button type="button" class="btn btn-danger font-weight-bold mb-2 mt-3" style="overflow: hidden; border: hidden;" id="disconnectBut" data-toggle="modal" data-target="#deletefoot"></button>
+                </div>
+                <div class="characters"></div>
+            </div>
+        </div>
+        <div class="modal fade" id="characterCreate">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content text-light" style="background-color: rgba(32, 32, 32, 0.9);" id="body1">
+                    <!-- Top bar -->
+                    <div class="modal-header">
+                        <strong class="modal-title">Character Creation</strong>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <!-- Main Forum to create a user -->
+                    <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-body" id="body2">
+                        <form id="creator-form">
+                            <!-- First Name and Last Name Div -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4"><b>First Name</b></label>
+                                    <input type="text" class="form-control" id="first_name" placeholder="First Name" required pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4"><b>Last Name</b></label>
+                                    <input type="text" class="form-control" id="last_name" placeholder="Last Name" required pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <!-- Date of Birth -->
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity"><b>Date of Birth</b></label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" id="dob" aria-label="Date of Birth" aria-describedby="basic-addon1" required pattern="(0[1-9]|1[012])\/(0[1-9]|1[0-9]|2[0-9]|3[01])\/[0-9]{4}">
+                                    </div>
+                                </div>
+                                <!-- Gender Selection -->
+                                <div class="form-group col-md-6">
+                                    <label for="inputState"><b>Gender</b></label>
+                                    <select id="gender" class="form-control" required>
+                                    <option selected>Male</option>
+                                    <option>Female</option>
+                                 </select>
+                                </div>
+                                <!-- Department Selection -->
+                                <div class="form-group col-md-6">
+                                    <label for="inputState"><b>Department</b></label>
+                                    <select id="dept" class="form-control" required></select>
+                                </div>
+                                <!-- Twotter name-->
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4"><b>Twitter Name</b></label>
+                                    <input type="text" class="form-control" id="twotter_name" placeholder="Twitter name" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-footer" id="body3">
+                        <button type="submit" class="btn btn-primary" id="CreateCharacter" form="creator-form">Create Character</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Spawn Loaction -->
+        <div class="modal fade form-row" id="spawnSelection">
+            <div id="spawnsizeshit" class="modal-dialog">
+                <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-content" id="spawn1">
+                    <div class="modal-header">
+                        <h5 id="aop" data-target="#aop" style="color: #fff" class="modal-title"></h5>
+                        <button style="color:#fff" id="spawn2" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-body" id="spawns"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" style="background-color: rgb(0, 123, 255);" id="DoNotTeleport">Do not Teleport</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit the character -->
+        <div class="modal fade" id="characterEdit">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content text-light" style="background-color: rgba(32, 32, 32, 0.9);" class="modal-header" id="edit0">
+                    <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-header" id="edit1">
+                        <strong id="charedit" class="modal-title"></strong>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                    </div>
+                    <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-body" id="edit2">
+                        <form id="edit-form">
+                            <!-- First Name and Last Name Div -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4"><b>First Name</b></label>
+                                    <input type="text" class="form-control" id="efirst_name" placeholder="First Name" required pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4"><b>Last Name</b></label>
+                                    <input type="text" class="form-control" id="elast_name" placeholder="Last Name" required pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <!-- Date of Birth -->
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity"><b>Date of Birth</b></label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" id="edob" aria-label="Date of Birth" aria-describedby="basic-addon1" required pattern="(0[1-9]|1[012])\/(0[1-9]|1[0-9]|2[0-9]|3[01])\/[0-9]{4}">
+                                    </div>
+                                </div>
+                                <!-- Gender Selection -->
+                                <div class="form-group col-md-6">
+                                    <label for="inputState"><b>Gender</b></label>
+                                    <select id="egender" class="form-control" required>
+                                    <option selected>Male</option>
+                                    <option>Female</option>
+                                 </select>
+                                </div>
+                                <!-- Department Selection -->
+                                <div class="form-group col-md-6">
+                                    <label for="inputState"><b>Department</b></label>
+                                    <select id="edept" class="form-control" required></select>
+                                </div>
+                                <!-- Twotter name-->
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4"><b>Twitter Name</b></label>
+                                    <input type="text" class="form-control" id="etwotter_name" placeholder="Twitter name" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-footer" id="edit3">
+                        <button type="submit" class="btn btn-primary" id="EditCharacter" form="edit-form">Save Character</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disconnect button -->
+        <div class="modal fade" id="deletefoot">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="background-color: rgba(32, 32, 32, 0.9);" id="disconnect1">
+                    <div class="modal-header" style="background-color: rgba(32, 32, 32, 0.9);" id="disconnect2">
+                        <h5 class="modal-title" style="color: white;">Are you sure you would like to disconnect from the server?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
+                    </div>
+                    <div class="modal-footer" style="background-color: rgba(32, 32, 32, 0.9);" id="disconnect3">
+                        <button type="button" class="btn btn-danger" id="deletepage"> Confirm</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete the character -->
+        <div class="modal fade" id="characterDelete">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="background-color: rgba(32, 32, 32, 0.9);" id="delete0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: rgba(255, 255, 255, 0.9);" id="delete1">Are you sure you would like to delete this character?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
+                    </div>
+                    <div class="modal-footer" style="background-color: rgba(32, 32, 32, 0.9);" id="delete2">
+                        <button type="button" class="btn btn-danger" id="DeleteCharacter">Remove Character</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Modal-->
+        <div class="modal fade" id="settingsModal">
+            <div class="modal-dialog">
+                <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-content" id="settings1">
+                    <div class="modal-header">
+                        <h5 style="color: #fff" class="modal-title">Framework settings</h5>
+                        <button style="color:#fff" id="spawn2" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div style="background-color: rgba(32, 32, 32, 0.9);" class="modal-body" id="settings2">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" value="not-checked" id="customCheck1">
+                            <label style="color: #fff;" class="custom-control-label" for="customCheck1">Framework-Wide Light Mode</label>
+                            <h1 class="underlinetext">Note: This only effects your client side UI Theme.</h1>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" value="checked" id="cloudBox" checked>
+                            <label style="color: #fff;" class="custom-control-label" for="cloudBox">Cloud Spawning</label>
+                            <h1 class="underlinetext">Default GTA cloud spawn animation.</h1>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" value="not-checked" id="slidwshowset">
+                            <label style="color: #fff;" class="custom-control-label" for="slidwshowset">Image Slide Show</label>
+                            <h1 class="underlinetext">Image slideshow.</h1>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <h1 style="color: #fff; font-size: 16px;">Character Gradient Color </h1>
+                                <input type="color" id="head1" name="head" value="#F3ADDD">
+                                <label style="color: #fff;" for="head">Left to Right</label>
+                                <input type="color" id="head2" name="head" value="#582185">
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <h1 style="color: #fff; font-size: 16px;">Refresh Gradient Color </h1>
+                                <input type="color" id="head3" name="head" value="#1792DA">
+                                <label style="color: #fff;" for="head">Left to Right</label>
+                                <input type="color" id="head4" name="head" value="#49C06D">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <h1 style="color: #fff; font-size: 16px;">Settings Gradient Color </h1>
+                                <input type="color" id="head5" name="head" value="#3E3BDF">
+                                <label style="color: #fff;" for="head">Left to Right</label>
+                                <input type="color" id="head6" name="head" value="#6529C5">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <h1 style="color: #fff; font-size: 16px;">Disconnect Gradient Color </h1>
+                                <input type="color" id="head7" name="head" value="#FF0000">
+                                <label style="color: #fff;" for="head">Left to Right</label>
+                                <input type="color" id="head8" name="head" value="#EB7F27">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <h1 class="mr-auto" style="color: #fff; font-size: 16px; left: 100px;" id="settingText"></h1>
+                        <button type="submit" class="btn btn-secondary" style="background-color: rgb(0, 123, 255); overflow: hidden; border: hidden;" id="SettingsSave">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
