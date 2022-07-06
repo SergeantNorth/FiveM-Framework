@@ -1,0 +1,81 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 
+To make the image a bit higher lower the top value to make it lower make the top value higher
+to move it left and right change the left value
+
+*/
+#container {
+    position: absolute;
+    top: 82%;
+    left: 16%;
+    width: 80px;
+    height: 80px;
+    display: none;
+    flex-direction: column;
+}
+
+header {
+    width: 80px;
+    height: 80px;
+    opacity: 0.8;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+/* CHANGE THE SIZE BY CHANGING THE WIDTH AND HEIGHT (MAKE SURE THEY ARE THE SAME)*/
+header img {
+    width: 45px;
+    height: 45px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.blink-image {
+    -moz-animation: blink normal 1s infinite ease-in-out;
+    -webkit-animation: blink normal 1s infinite ease-in-out;
+    animation: blink normal 1s infinite ease-in-out;
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
