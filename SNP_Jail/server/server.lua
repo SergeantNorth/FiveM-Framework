@@ -3,6 +3,10 @@
 -- Copyright SergeantNorth Productions --
 -- discord.gg/sergeantnorth --
 
+if (GetCurrentResourceName() ~= "SNP_Jail") then
+    print("[^1DEBUG^0] Please make sure the resource name is ^3SNP_Jail^0 or else exports won't work.")
+end
+
 RegisterNetEvent('SERGEANTNORTH:GETJAILPLAYERS')
 AddEventHandler('SERGEANTNORTH:GETJAILPLAYERS', function(src) 
     local allplayers = {}
