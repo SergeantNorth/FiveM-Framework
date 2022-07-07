@@ -3,6 +3,10 @@
 -- Copyright SergeantNorth Productions --
 -- discord.gg/sergeantnorth --
 
+if (GetCurrentResourceName() ~= "SNP_DMV") then
+    print("[^1DEBUG^0] Please make sure the resource name is ^3SNP_DMV^0 or else exports won't work.")
+end
+
 RegisterCommand(config.command, function(source, args, message) 
     local player = getstuff(source)
     local name = SpaceBet(player[source].char_name)
