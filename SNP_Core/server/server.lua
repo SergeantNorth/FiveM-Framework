@@ -1,3 +1,7 @@
+if (GetCurrentResourceName() ~= "SNP_Core") then
+  print("[^1DEBUG^0] Please make sure the resource name is ^3SNP_Core^0 or else exports won't work.")
+end
+
 -- MADE BY SERGEANTNORTH -- 
 local resource_name = GetCurrentResourceName();
 
