@@ -1,2 +1,2 @@
-# FiveM-Framework
-Created by SergeantNorth Productions by SergeantNorth. This Framework is inspired by DoJRP and has had many hours spent on the development. The latest Stable Build (v1.0.0) contains a DMV System (fully integrateable with SonoranCAD and HamzCAD), Money System (with a Fuel System, Banking and more), Phone, Hospital and Jailing Scripts and Much More! SNP is planning tons more for this framework in the future.
+# SNP-Framework
+After being created, the team over at SNP have decided to make this a purchasable asset rather than free-to-use. Those of you who have already downloaded this, may use it but also may run into major issues. If you wish to have support, please utilize discord.gg/sergeantnorth to purchase the asset.
